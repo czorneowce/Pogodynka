@@ -13,9 +13,7 @@ public class MainActivity extends Activity {
    
         //beniz
         //dwa beniz
-        //hvgyvgyvtyvgyvyg
-        //aa
-    }
+            }
 
 
     @Override
