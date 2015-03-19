@@ -12,9 +12,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
    
         //https://dribbble.com/shots/1980005--CSS-Menu-animation?list=shots&sort=popular&timeframe=now&offset=6
-        //ieouroiu
-        //cilit bang
-        //jjjjjjjj
+       
         //,,,
     
             }
