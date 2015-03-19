@@ -8,7 +8,7 @@
         android:toXScale="1500%"
         android:toYScale="1500%" 
         android:pivotX="50%"
-        android:interpolator="@android:anim/accelerate_interpolator"
+        android:interpolator="@android:anim/linear_interpolator"
         android:pivotY="50%"/>
 
 </set>
