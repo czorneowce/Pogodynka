@@ -5,14 +5,17 @@ import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnFocusChangeListener;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
 
@@ -50,7 +53,7 @@ public class MainActivity extends Activity {
 					public void onAnimationEnd(Animator animation) {
 						Intent intent = new Intent(MainActivity.this, DrugieActivity.class);
 						intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-						startActivity(intent);						
+						startActivity(intent);	
 					}
 					
 					@Override
@@ -63,7 +66,18 @@ public class MainActivity extends Activity {
 		
 		//https://dribbble.com/shots/1980005--CSS-Menu-animation?list=shots&sort=popular&timeframe=now&offset=6
 	}
-
+	
+	@Override
+	protected void onResume() {
+		if (Zmienne.powrot == true) {
+			ObjectAnimator oa = ObjectAnimator.ofFloat(kolko, "scaleX", 15.0f, 1.0f).setDuration(500);
+			ObjectAnimator ob = ObjectAnimator.ofFloat(kolko, "scaleY", 15.0f, 1.0f).setDuration(500);
+			oa.start();
+			ob.start();
+			Zmienne.powrot = false;
+		}
+		super.onResume();
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
