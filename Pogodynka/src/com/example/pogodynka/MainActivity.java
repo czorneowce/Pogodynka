@@ -1,7 +1,11 @@
 package com.example.pogodynka;
 
 import android.os.Bundle;
+import android.animation.Animator;
+import android.animation.Animator.AnimatorListener;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,8 +32,31 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				Animation anim = new AnimationUtils().loadAnimation(that, R.anim.zwieksz_kolo);
-				kolko.startAnimation(anim);
+				ObjectAnimator oa = ObjectAnimator.ofFloat(kolko, "scaleX", 1.0f, 15.0f).setDuration(500);
+				ObjectAnimator ob = ObjectAnimator.ofFloat(kolko, "scaleY", 1.0f, 15.0f).setDuration(500);
+				oa.start();
+				ob.start();
+				oa.addListener(new AnimatorListener() {
+					
+					@Override
+					public void onAnimationStart(Animator animation) {
+					}
+					
+					@Override
+					public void onAnimationRepeat(Animator animation) {
+					}
+					
+					@Override
+					public void onAnimationEnd(Animator animation) {
+						Intent intent = new Intent(MainActivity.this, DrugieActivity.class);
+						intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+						startActivity(intent);						
+					}
+					
+					@Override
+					public void onAnimationCancel(Animator animation) {
+					}
+				});
 				return false;
 			}
 		});
