@@ -1,5 +1,6 @@
 package com.example.pogodynka;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -7,6 +8,9 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -21,6 +25,49 @@ public class DrugieActivity extends Activity {
 	TextView op1;
 	TextView op2;
 	TextView op3;
+
+	private final LocationListener mLocationListener = new LocationListener() {
+		@Override
+		public void onLocationChanged(final Location location) {
+			Log.d("XQ", "--------------------------------------------------\nlongitude: " + location.getLongitude() + "\nlatitude: " + location.getLatitude());
+			Geocoder geo = new Geocoder(DrugieActivity.this, Locale.getDefault());
+			List<Address> addresses;
+			try {
+				addresses = geo.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+
+				//JESLI GEOCODER NIE DZIALA (NP WALNIE ERRORA ZE CHUJ GO TO BOLI) TO WTEDY TRZEBA RESTARTOWAC TELEFON
+				if(addresses.size() > 0) {
+					Log.d("XQ",addresses.get(0).getAddressLine(0) +", "
+							+ addresses.get(0).getAddressLine(1) +", "
+							+ addresses.get(0).getAddressLine(2) +", "
+							+ addresses.get(0).getFeatureName() + ", "//to jest chyba numer domu
+							+ addresses.get(0).getLocality() +", "
+							+ addresses.get(0).getCountryName() + "\n--------------------------------------------------");
+				}
+			} catch (IOException e) {
+				Log.d("XQ", e.getMessage());
+				e.printStackTrace();
+			}  
+		}
+
+		@Override
+		public void onStatusChanged(String provider, int status, Bundle extras) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onProviderEnabled(String provider) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onProviderDisabled(String provider) {
+			// TODO Auto-generated method stub
+
+		}
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,27 +97,12 @@ public class DrugieActivity extends Activity {
 		al3.setStartDelay(200);
 		trans3.start();
 		al3.start();
-		
-		try{
-			Geocoder geo = new Geocoder(DrugieActivity.this.getApplicationContext(), Locale.getDefault());
-			List<Address> addresses = geo.getFromLocation(50, 50, 1);  
-			Log.d("XQ","Ds");
-			if(addresses.size() > 0) {
-				Log.d("XQ","Dhs");
-			Log.d("XQ",addresses.get(0).getFeatureName() + ", "
-					+ addresses.get(0).getLocality() +", "
-					+ addresses.get(0).getAdminArea() + ", "
-					+ addresses.get(0).getCountryName());
-			} else {
-				Log.d("XQ","zero");
-			}
 
-		}
-		catch (Exception e) {
-			e.printStackTrace(); 
-		}
-
+		LocationManager mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 5, mLocationListener);
 	}
+
+
 
 	@Override
 	public void onBackPressed() {
