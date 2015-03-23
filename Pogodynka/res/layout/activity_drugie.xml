@@ -5,35 +5,38 @@
     android:background="@color/red"
     android:orientation="vertical"
     tools:context="com.example.pogodynka.DrugieActivity" >
-    
-    <TextView android:id="@+id/op1"
+
+    <TextView
+        android:id="@+id/op1"
         android:layout_width="wrap_content"
-        android:textColor="@android:color/white"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:alpha="0"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:text="Opcja pierwsza"/>
-    
-     <TextView android:id="@+id/op2"
+        android:layout_marginTop="10dp"
+        android:alpha="0"
+        android:text="Opcja pierwsza"
+        android:textColor="@android:color/white"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/op2"
         android:layout_width="wrap_content"
-        android:textColor="@android:color/white"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:alpha="0"
-        android:text="Opcja druga"/>
-     
-      <TextView android:id="@+id/op3"
+        android:text="Opcja druga"
+        android:textColor="@android:color/white"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/op3"
         android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:textColor="@android:color/white"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:alpha="0"
-        android:text="Opcja trzecia"/>
+        android:text="Opcja trzecia"
+        android:textColor="@android:color/white"
+        android:textSize="40sp" />
 
 </LinearLayout>

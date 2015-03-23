@@ -1,20 +1,37 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context=".MainActivity" >
 
     <ImageView
+        android:id="@+id/imidzwiew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/material" />
 
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imidzwiew" >
+
+        <ImageView
+            android:id="@+id/kolko2"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/kolko" />
+    </RelativeLayout>
+
     <ImageView
         android:id="@+id/kolko"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        android:layout_below="@id/imidzwiew"
         android:src="@drawable/kolko" />
 
     <!--
@@ -60,4 +77,4 @@
     </ScrollView>
     -->
 
-</LinearLayout>
+</RelativeLayout>

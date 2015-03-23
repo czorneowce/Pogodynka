@@ -13,18 +13,14 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
 public class DrugieActivity extends Activity {
 
-	TextView op1;
-	TextView op2;
-	TextView op3;
+	private TextView op1;
+	private TextView op2;
+	private TextView op3;
 
 	private final LocationListener mLocationListener = new LocationListener() {
 		@Override
