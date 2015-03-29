@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <item name="red" type="color">#f44336</item>
-    <item name="indigo" type="color">#303f9f</item>
-    <item name="yellow" type="color">#ffeb3b</item>
-    <item name="amber" type="color">#ffd54f</item>
-    <item name="orange" type="color">#ffb74d</item>
-    <item name="darkOrange" type="color">#f57c00</item>
-    <item name="rano" type="color">#E3BB88</item>
-    <item name="poludnie" type="color">#DB9864</item>
-    <item name="wieczor" type="color">#B0695A</item>
-    <item name="noc" type="color">#937E81</item>
-
+     <item name="red" type="color">#f44336</item>
 </resources>

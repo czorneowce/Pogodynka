@@ -39,32 +39,4 @@
         android:textColor="@android:color/white"
         android:textSize="40sp" />
 
-    <!--
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
-    <Button
-        android:id="@+id/btnGPSShowLocation"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="53dp"
-        android:text="Show Location" />
-
-    <Button
-        android:id="@+id/btnShowAddress"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Show Address" />
-
-    <TextView
-        android:id="@+id/tvAddress"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-    -->
-
 </LinearLayout>
