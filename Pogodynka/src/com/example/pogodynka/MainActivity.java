@@ -1,18 +1,15 @@
 package com.example.pogodynka;
 
-import android.animation.Animator;
-import android.animation.Animator.AnimatorListener;
-import android.animation.AnimatorInflater;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends Activity {
 
@@ -20,6 +17,10 @@ public class MainActivity extends Activity {
 	private ImageView kolko2;
 	private ImageView imidzwiew;
 
+	private RelativeLayout layoutRano;
+	private RelativeLayout layoutPoludnie;
+	private RelativeLayout layoutWieczor;
+	private RelativeLayout layoutNoc;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,14 @@ public class MainActivity extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 
-		kolko = (ImageView) findViewById(R.id.kolko);
+		layoutRano = (RelativeLayout) findViewById(R.id.layoutRano);
+		layoutPoludnie = (RelativeLayout) findViewById(R.id.layoutPoludnie);
+		layoutWieczor = (RelativeLayout) findViewById(R.id.layoutWieczor);
+		layoutNoc = (RelativeLayout) findViewById(R.id.layoutNoc);
+
+		setListeners();
+
+		/*kolko = (ImageView) findViewById(R.id.kolko);
 		kolko2 = (ImageView) findViewById(R.id.kolko2);
 		imidzwiew = (ImageView) findViewById(R.id.imidzwiew);
 
@@ -94,12 +102,10 @@ public class MainActivity extends Activity {
 				});
 				return false;
 			}
-		});
-
-		//https://dribbble.com/shots/1980005--CSS-Menu-animation?list=shots&sort=popular&timeframe=now&offset=6
+		});*/
 	}
 
-	@Override
+	/*@Override
 	protected void onResume() {
 		if (Zmienne.powrot == true) {
 			ObjectAnimator oa = ObjectAnimator.ofFloat(kolko, "scaleX", 15.0f, 1.0f).setDuration(500);
@@ -109,11 +115,85 @@ public class MainActivity extends Activity {
 			Zmienne.powrot = false;
 		}
 		super.onResume();
+	}*/
+
+	public void setListeners() {
+		layoutRano.setOnTouchListener(new View.OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				setParamsToBar();
+
+				LinearLayout.LayoutParams thisParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+				thisParams.weight = 1;
+				layoutRano.setLayoutParams(thisParams);
+				return false;
+			}
+		});
+
+		layoutPoludnie.setOnTouchListener(new View.OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				setParamsToBar();
+
+				LinearLayout.LayoutParams thisParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+				thisParams.weight = 1;
+				layoutPoludnie.setLayoutParams(thisParams);
+				return false;
+			}
+		});
+
+		layoutWieczor.setOnTouchListener(new View.OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				setParamsToBar();
+
+				LinearLayout.LayoutParams thisParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+				thisParams.weight = 1;
+				layoutWieczor.setLayoutParams(thisParams);
+				return false;
+			}
+		});
+
+		layoutNoc.setOnTouchListener(new View.OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				setParamsToBar();
+
+				LinearLayout.LayoutParams thisParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+				thisParams.weight = 1;
+				layoutNoc.setLayoutParams(thisParams);
+				return false;
+			}
+		});
+
+	}
+
+	public void setParamsToBar() {
+		int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 160, getResources().getDisplayMetrics());
+
+		LinearLayout.LayoutParams paramsRano = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+		paramsRano.weight = 1;
+		layoutRano.setLayoutParams(paramsRano);
+
+		LinearLayout.LayoutParams paramsPoludnie = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+		paramsPoludnie.weight = 1;
+		layoutPoludnie.setLayoutParams(paramsPoludnie);
+
+		LinearLayout.LayoutParams paramsWieczor = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+		paramsWieczor.weight = 1;
+		layoutWieczor.setLayoutParams(paramsWieczor);
+
+		LinearLayout.LayoutParams paramsNoc = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+		paramsNoc.weight = 1;
+		layoutNoc.setLayoutParams(paramsNoc);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
