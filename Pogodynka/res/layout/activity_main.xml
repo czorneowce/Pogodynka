@@ -1,15 +1,98 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:orientation="vertical" >
 
+        <RelativeLayout
+            android:id="@+id/layoutRano"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@color/rano" >
+
+            <TextView
+                style="@style/MainActivityTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:text="RANO" />
+
+            <TextView
+                style="@style/MainActivityTextView"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="25" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutPoludnie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/poludnie" >
+
+            <TextView
+                style="@style/MainActivityTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:text="POŁUDNIE" />
+
+            <TextView
+                style="@style/MainActivityTextView"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="25" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutWieczor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/wieczor" >
+
+            <TextView
+                style="@style/MainActivityTextView"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:text="WIECZÓR" />
+
+            <TextView
+                style="@style/MainActivityTextView"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="25" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutNoc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/noc" >
+
+            <TextView
+                style="@style/MainActivityTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:text="NOC" />
+
+            <TextView
+                style="@style/MainActivityTextView"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:text="25" />
+        </RelativeLayout>
+        
+    <!--
     <ImageView
         android:id="@+id/imidzwiew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         android:src="@drawable/material" />
 
     <RelativeLayout
@@ -33,6 +116,8 @@
         android:layout_height="64dp"
         android:layout_below="@id/imidzwiew"
         android:src="@drawable/kolko" />
+    -->
+
 
     <!--
     <ScrollView
@@ -77,4 +162,4 @@
     </ScrollView>
     -->
 
-</RelativeLayout>
+</LinearLayout>
