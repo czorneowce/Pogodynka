@@ -1,91 +1,119 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".MainActivity"
-    android:orientation="vertical" >
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/nazwaMiastaTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/orange"
+        android:gravity="center"
+        android:text="Kraków"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/nazwaMiastaTextView"
+        android:orientation="vertical" >
 
         <RelativeLayout
             android:id="@+id/layoutRano"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@color/rano" >
 
             <TextView
+                android:id="@+id/ranoTextView"
                 style="@style/MainActivityTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
                 android:text="RANO" />
 
             <TextView
                 style="@style/MainActivityTextView"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
+                android:layout_alignLeft="@id/ranoTextView"
+                android:layout_below="@id/ranoTextView"
                 android:text="25" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/layoutPoludnie"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/poludnie" >
 
             <TextView
+                android:id="@+id/poludnieTextView"
                 style="@style/MainActivityTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
                 android:text="POŁUDNIE" />
 
             <TextView
                 style="@style/MainActivityTextView"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:text="25" />
+                android:layout_alignLeft="@id/poludnieTextView"
+                android:layout_below="@id/poludnieTextView"
+                android:text="26" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/layoutWieczor"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/wieczor" >
 
             <TextView
+                android:id="@+id/wieczorTextView"
                 style="@style/MainActivityTextView"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
                 android:text="WIECZÓR" />
 
             <TextView
                 style="@style/MainActivityTextView"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:text="25" />
+                android:layout_alignLeft="@id/wieczorTextView"
+                android:layout_below="@id/wieczorTextView"
+                android:text="27" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/layoutNoc"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/noc" >
 
             <TextView
+                android:id="@+id/nocTextView"
                 style="@style/MainActivityTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
                 android:text="NOC" />
 
             <TextView
                 style="@style/MainActivityTextView"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:text="25" />
+                android:layout_alignLeft="@id/nocTextView"
+                android:layout_below="@id/nocTextView"
+                android:text="28" />
         </RelativeLayout>
-        
+    </LinearLayout>
+    
+      <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="-60dp"
+        android:layout_marginTop="-60dp"
+        android:src="@drawable/kolko" />
     <!--
     <ImageView
         android:id="@+id/imidzwiew"
@@ -162,4 +190,4 @@
     </ScrollView>
     -->
 
-</LinearLayout>
+</RelativeLayout>
