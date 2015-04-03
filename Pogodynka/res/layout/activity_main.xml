@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:background="@android:color/black"
         android:gravity="center"
-        android:text="Kraków"
+       
         android:textColor="@android:color/white"
         android:textSize="30sp" />
 
